@@ -39,7 +39,7 @@ export class GrpcToHttpInterceptor implements NestInterceptor {
           throwError(() => err);
 
         const statusCode =
-          HTTP_CODE_FROM_GRPC[200] || HttpStatus.INTERNAL_SERVER_ERROR;
+          HTTP_CODE_FROM_GRPC[err.code] || HttpStatus.INTERNAL_SERVER_ERROR;
 
         return throwError(
           () =>
