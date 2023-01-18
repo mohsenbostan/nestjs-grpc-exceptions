@@ -3,6 +3,14 @@
   "description": "NestJS gRPC Exceptions",
   "license": "MIT",
   "author": "Mohsen Bostan <mohsenbostandev@gmail.com",
+  "homepage": "https://github.com/mohsenbostan/nestjs-grpc-exceptions",
+  "bugs": {
+    "url": "https://github.com/mohsenbostan/nestjs-grpc-exceptions/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohsenbostan/nestjs-grpc-exceptions.git"
+  },
   "version": "0.0.1",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
