@@ -3,7 +3,7 @@
   "description": "NestJS gRPC Exceptions",
   "license": "MIT",
   "author": "Mohsen Bostan <mohsenbostandev@gmail.com",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
