@@ -40,9 +40,24 @@ import { GrpcServerExceptionFilter } from "nestjs-grpc-exceptions";
 export class UserModule {}
 ```
 
-Now you can use the exception classes:
+Add the client interceptor to your client:
 
 ```ts
+import { GrpcToHttpInterceptor } from 'nestjs-grpc-exceptions';
+
+@Get(':id')
+@UseInterceptors(GrpcToHttpInterceptor)
+function findUser(@Param('id') id: number): void;
+```
+
+Now you can use the exception classes in your servers:
+
+```ts
+import {
+  GrpcNotFoundException,
+  GrpcInvalidArgumentException,
+} from "nestjs-grpc-exceptions";
+
 throw new GrpcNotFoundException("User Not Found.");
 throw new GrpcInvalidArgumentException("input 'name' is not valid.");
 ```
