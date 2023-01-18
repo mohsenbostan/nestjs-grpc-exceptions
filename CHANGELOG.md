@@ -1,5 +1,11 @@
 # nestjs-grpc-exceptions
 
+## 0.1.1
+
+### Patch Changes
+
+- b3c4b70: fix client interceptor gRPC code
+
 ## 0.1.0
 
 ### Minor Changes
