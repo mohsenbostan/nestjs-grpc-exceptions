@@ -17,7 +17,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup index.ts --format cjs,esm --dts",
-    "lint": "tsc"
+    "lint": "tsc",
+    "test": "jest --",
+    "test:coverage": "jest --collectCoverage --"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
@@ -25,8 +27,11 @@
     "@nestjs/common": "^9.2.1",
     "@nestjs/core": "^9.2.1",
     "@nestjs/microservices": "^9.2.1",
+    "@types/jest": "^29.2.6",
+    "jest": "^29.3.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
+    "ts-jest": "^29.0.5",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
   },
@@ -35,5 +40,22 @@
     "@nestjs/common": "^8.0.0 || ^9.0.0",
     "@nestjs/core": "^8.0.0 || ^9.0.0",
     "@nestjs/microservices": "^8.0.0 || ^9.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": ".",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
   }
 }
