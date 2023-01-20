@@ -3,7 +3,7 @@ import { Observable, throwError } from "rxjs";
 import { GrpcNotFoundException, GrpcToHttpInterceptor } from "../../lib";
 
 const throwMockException = (
-  Exception: new (...args: any[]) => any
+  Exception: new (...args: any[]) => any,
 ): Observable<any> => {
   const exception = new Exception(Exception.name).getError() as Record<
     string,

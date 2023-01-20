@@ -15,7 +15,7 @@ import { HTTP_CODE_FROM_GRPC } from "../utils";
 export class GrpcToHttpInterceptor implements NestInterceptor {
   intercept(
     _context: ExecutionContext,
-    next: CallHandler<any>
+    next: CallHandler<any>,
   ): Observable<any> | Promise<Observable<any>> {
     return next.handle().pipe(
       catchError((err) => {
@@ -52,10 +52,10 @@ export class GrpcToHttpInterceptor implements NestInterceptor {
               statusCode,
               {
                 cause: err,
-              }
-            )
+              },
+            ),
         );
-      })
+      }),
     );
   }
 }

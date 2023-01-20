@@ -14,7 +14,7 @@ export type GrpcExceptionPayload = {
  */
 export function errorObject(
   error: string | object,
-  code: GrpcStatusCode
+  code: GrpcStatusCode,
 ): GrpcExceptionPayload {
   return {
     message: JSON.stringify({
