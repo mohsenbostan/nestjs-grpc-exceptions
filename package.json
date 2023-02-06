@@ -20,7 +20,8 @@
     "test": "jest --",
     "test:coverage": "jest --collectCoverage --",
     "lint": "eslint \"{src,lib,test}/**/*.ts\" --fix",
-    "format": "prettier --write \"lib/**/*.ts\" \"test/**/*.ts\""
+    "format": "prettier --write \"lib/**/*.ts\" \"test/**/*.ts\"",
+    "release": "pnpm run build && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
