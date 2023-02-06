@@ -61,7 +61,3 @@ import {
 throw new GrpcNotFoundException("User Not Found.");
 throw new GrpcInvalidArgumentException("input 'name' is not valid.");
 ```
-
-### ALERT 🚨
-
-This library is in its early development. Be careful about using it in a production environment.
