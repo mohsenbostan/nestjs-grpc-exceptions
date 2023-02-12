@@ -72,4 +72,4 @@ import { HttpToGrpcInterceptor } from 'nestjs-grpc-exceptions';
 function getAllUsers(): void;
 ```
 
-list of support http status codes: 401 - 403 - 502 - 404 - 405 - 409 - 422 - 429 - 500
+list of supported http status codes: 401 - 403 - 502 - 404 - 405 - 409 - 422 - 429 - 500
