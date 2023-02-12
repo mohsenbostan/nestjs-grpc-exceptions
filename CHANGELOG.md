@@ -1,5 +1,11 @@
 # nestjs-grpc-exceptions
 
+## 0.2.0
+
+### Minor Changes
+
+- b03aad4: Add Http to gRPC interceptor
+
 ## 0.1.1
 
 ### Patch Changes
