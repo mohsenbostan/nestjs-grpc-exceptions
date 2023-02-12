@@ -27,7 +27,7 @@ export class GrpcToHttpInterceptor implements NestInterceptor {
             typeof err.details === "string"
           )
         )
-          throwError(() => err);
+          return throwError(() => err);
 
         const exception = JSON.parse(err.details) as {
           error: string | object;
@@ -36,7 +36,7 @@ export class GrpcToHttpInterceptor implements NestInterceptor {
         };
 
         if (exception.exceptionName !== RpcException.name)
-          throwError(() => err);
+          return throwError(() => err);
 
         const statusCode =
           HTTP_CODE_FROM_GRPC[err.code] || HttpStatus.INTERNAL_SERVER_ERROR;

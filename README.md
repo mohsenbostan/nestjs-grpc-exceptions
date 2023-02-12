@@ -61,3 +61,15 @@ import {
 throw new GrpcNotFoundException("User Not Found.");
 throw new GrpcInvalidArgumentException("input 'name' is not valid.");
 ```
+
+If you use Http Exceptions in your microservice clients, you can use the **HttpToGrpcInterceptor** interceptor to convert them
+
+```ts
+import { HttpToGrpcInterceptor } from 'nestjs-grpc-exceptions';
+
+@UseInterceptors(HttpToGrpcInterceptor)
+@GrpcMethod()
+function getAllUsers(): void;
+```
+
+list of support http status codes: 401 - 403 - 502 - 404 - 405 - 409 - 422 - 429 - 500
