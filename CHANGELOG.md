@@ -1,5 +1,11 @@
 # nestjs-grpc-exceptions
 
+## 0.2.1
+
+### Patch Changes
+
+- ea24504: support NestJS version 10
+
 ## 0.2.0
 
 ### Minor Changes
