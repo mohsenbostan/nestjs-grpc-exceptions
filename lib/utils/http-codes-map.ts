@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { status as Status } from "@grpc/grpc-js";
 import { HttpStatus } from "@nestjs/common";
 
@@ -19,4 +20,5 @@ export const HTTP_CODE_FROM_GRPC: Record<number, number> = {
   [Status.UNAVAILABLE]: HttpStatus.NOT_FOUND,
   [Status.DATA_LOSS]: HttpStatus.INTERNAL_SERVER_ERROR,
   [Status.UNAUTHENTICATED]: HttpStatus.UNAUTHORIZED,
+  [Status.NO_CONTENT]: HttpStatus.NO_CONTENT,
 };
