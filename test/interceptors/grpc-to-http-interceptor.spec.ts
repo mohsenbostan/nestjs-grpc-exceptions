@@ -1,4 +1,4 @@
-import { HttpException } from "@nestjs/common";
+import { HttpException, HttpStatus } from "@nestjs/common";
 import { Observable, throwError } from "rxjs";
 import { GrpcNotFoundException, GrpcToHttpInterceptor } from "../../lib";
 
@@ -48,7 +48,7 @@ describe("GrpcToHttpInterceptor", () => {
     intercept$.subscribe({
       error: (err) => {
         expect(err).toBeInstanceOf(HttpException);
-        expect(err.status).toEqual(404);
+        expect(err.status).toEqual(HttpStatus.NOT_FOUND);
         done();
       },
       complete: () => done(),
