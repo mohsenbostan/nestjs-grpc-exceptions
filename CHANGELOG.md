@@ -1,5 +1,11 @@
 # nestjs-grpc-exceptions
 
+## 0.2.2
+
+### Patch Changes
+
+- fbea997: refactor the internal handler
+
 ## 0.2.1
 
 ### Patch Changes
