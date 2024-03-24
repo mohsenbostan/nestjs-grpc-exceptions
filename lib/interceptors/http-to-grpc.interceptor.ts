@@ -6,7 +6,9 @@ import {
 } from "@nestjs/common";
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
-import { GRPC_EXCEPTION_FROM_HTTP } from "../utils";
+import { GRPC_CODE_FROM_HTTP } from "../utils";
+import { status as Status } from "@grpc/grpc-js";
+import { RpcException } from "@nestjs/microservices";
 
 @Injectable()
 export class HttpToGrpcInterceptor implements NestInterceptor {
@@ -32,11 +34,16 @@ export class HttpToGrpcInterceptor implements NestInterceptor {
           message: string;
         };
 
-        if (!(exception.statusCode in GRPC_EXCEPTION_FROM_HTTP))
-          return throwError(() => err);
+        const statusCode =
+          GRPC_CODE_FROM_HTTP[exception.statusCode] || Status.INTERNAL;
 
-        const Exception = GRPC_EXCEPTION_FROM_HTTP[exception.statusCode];
-        return throwError(() => new Exception(exception.message));
+        return throwError(
+          () =>
+            new RpcException({
+              message: exception.message,
+              code: statusCode,
+            }),
+        );
       }),
     );
   }
