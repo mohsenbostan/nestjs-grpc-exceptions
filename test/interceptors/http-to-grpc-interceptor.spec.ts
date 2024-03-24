@@ -3,6 +3,7 @@ import { Observable, throwError } from "rxjs";
 import { HttpToGrpcInterceptor } from "../../lib";
 import { RpcException } from "@nestjs/microservices";
 import { status as GrpcStatusCode } from "@grpc/grpc-js";
+import { GRPC_CODE_FROM_HTTP } from "../../lib/utils";
 
 const throwMockException = (
   Exception: new (...args: any[]) => any,
@@ -12,7 +13,7 @@ const throwMockException = (
     () =>
       new RpcException({
         message: exception.message,
-        code: GrpcStatusCode.NOT_FOUND,
+        code: GRPC_CODE_FROM_HTTP[exception.status],
       }),
   );
 };
