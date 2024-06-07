@@ -40,7 +40,12 @@ export class HttpToGrpcInterceptor implements NestInterceptor {
         return throwError(
           () =>
             new RpcException({
-              message: exception.message,
+              message: JSON.stringify({
+                error: exception.message,
+                type:
+                  typeof exception.message === "string" ? "string" : "object",
+                exceptionName: RpcException.name,
+              }),
               code: statusCode,
             }),
         );
